@@ -67,6 +67,8 @@ public class MyDeque<E>{
       replace[newI++] = data[i];
       i = correctIndex(i+1);
     }
+    s = 0;
+    e = size();
   }
   public static void main(String[] args){
     MyDeque<String> m = new MyDeque<String>();
