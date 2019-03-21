@@ -43,6 +43,12 @@ public class MyDeque<E>{
     size--;
     return out;
   }
+  public E getFirst(){
+    return data[s];
+  }
+  public E getLast(){
+    return data[e];
+  }
   public static void main(String[] args){
     MyDeque<String> m = new MyDeque<String>();
     System.out.println(m.correctIndex(-1));
