@@ -49,6 +49,9 @@ public class MyDeque<E>{
   public E getLast(){
     return data[e];
   }
+  public int size(){
+    return size;
+  }
   public static void main(String[] args){
     MyDeque<String> m = new MyDeque<String>();
     System.out.println(m.correctIndex(-1));
