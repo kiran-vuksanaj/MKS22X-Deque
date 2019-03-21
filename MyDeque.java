@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 public class MyDeque<E>{
   private E[] data;
   private int size,s,e;
@@ -22,33 +23,39 @@ public class MyDeque<E>{
   }
 
   public void addFirst(E element){
+    if(element==null) throw new NullPointerException();
     if(data.length <= size()) resize();
     s = correctIndex(s-1);
     data[s] = element;
     size++;
   }
   public void addLast(E element){
+    if(element==null) throw new NullPointerException();
     if(data.length <= size()) resize();
     data[e] = element;
     e = correctIndex(e+1);
     size++;
   }
   public E removeFirst(){
+    if(size()==0) throw new NoSuchElementException("empty deque");
     E out = data[s];
     s = correctIndex(s+1);
     size--;
     return out;
   }
   public E removeLast(){
+    if(size()==0) throw new NoSuchElementException("empty deque");
     e = correctIndex(e-1);
     E out = data[e];
     size--;
     return out;
   }
   public E getFirst(){
+    if(size()==0) throw new NoSuchElementException("empty deque");
     return data[s];
   }
   public E getLast(){
+    if(size()==0) throw new NoSuchElementException("empty deque");
     return data[correctIndex(e-1)];
   }
   public int size(){
@@ -77,7 +84,6 @@ public class MyDeque<E>{
   }
   public static void main(String[] args){
     MyDeque<String> m = new MyDeque<String>();
-    /*
     System.out.println(m.correctIndex(-1));
     System.out.println(m.correctIndex(10));
     System.out.println(m.correctIndex(11));
@@ -93,7 +99,6 @@ public class MyDeque<E>{
     System.out.println(m.removeLast());
     System.out.println(m.getLast());
     System.out.println(m+" "+m.size());
-    */
     for(int i=0;i<20;i++){
       m.addFirst("j");
       m.addLast("h");
