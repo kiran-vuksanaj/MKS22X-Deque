@@ -24,10 +24,24 @@ public class MyDeque<E>{
   public void addFirst(E element){
     s = correctIndex(s-1);
     data[s] = element;
+    size++;
   }
   public void addLast(E element){
     data[e] = element;
     e = correctIndex(e+1);
+    size++;
+  }
+  public E removeFirst(){
+    E out = data[s];
+    s = correctIndex(s+1);
+    size--;
+    return out;
+  }
+  public E removeLast(){
+    E out = data[e];
+    e = correctIndex(e-1);
+    size--;
+    return out;
   }
   public static void main(String[] args){
     MyDeque<String> m = new MyDeque<String>();
@@ -38,6 +52,9 @@ public class MyDeque<E>{
     m.addFirst("hi there");
     m.addLast("whats up");
     m.addLast("howdy");
-    System.out.println(Arrays.toString(m.data));
+    System.out.println(Arrays.toString(m.data)+m.s+" "+m.e+" "+m.size);
+    m.removeFirst();
+    m.removeLast();
+    System.out.println(Arrays.toString(m.data)+m.s+" "+m.e+" "+m.size);
   }
 }
