@@ -15,4 +15,19 @@ public class MyDeque<E>{
     e = 0;
   }
 
+  private int correctIndex(int i){
+    if(i < 0 || i >= data.length) return (i + data.length)%data.length;
+    return i;
+  }
+
+  public void addFirst(E element){
+    s = correctIndex(s-1);
+    data[s] = element;
+  }
+  public static void main(String[] args){
+    MyDeque<String> m = new MyDeque<String>();
+    System.out.println(m.correctIndex(-1));
+    System.out.println(m.correctIndex(10));
+    System.out.println(m.correctIndex(11));
+  }
 }
