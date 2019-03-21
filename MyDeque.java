@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class MyDeque<E>{
   private E[] data;
   private int size,s,e;
@@ -24,10 +25,19 @@ public class MyDeque<E>{
     s = correctIndex(s-1);
     data[s] = element;
   }
+  public void addLast(E element){
+    data[e] = element;
+    e = correctIndex(e+1);
+  }
   public static void main(String[] args){
     MyDeque<String> m = new MyDeque<String>();
     System.out.println(m.correctIndex(-1));
     System.out.println(m.correctIndex(10));
     System.out.println(m.correctIndex(11));
+    m.addFirst("woah");
+    m.addFirst("hi there");
+    m.addLast("whats up");
+    m.addLast("howdy");
+    System.out.println(Arrays.toString(m.data));
   }
 }
