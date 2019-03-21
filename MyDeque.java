@@ -38,8 +38,8 @@ public class MyDeque<E>{
     return out;
   }
   public E removeLast(){
-    E out = data[e];
     e = correctIndex(e-1);
+    E out = data[e];
     size--;
     return out;
   }
@@ -47,10 +47,17 @@ public class MyDeque<E>{
     return data[s];
   }
   public E getLast(){
-    return data[e];
+    return data[correctIndex(e-1)];
   }
   public int size(){
     return size;
+  }
+  public String toString(){
+    String out = "{";
+    for(int i=s;i!=e; i=correctIndex(i+1)){
+      out += data[i] + " ";
+    }
+    return out + "}";
   }
   public static void main(String[] args){
     MyDeque<String> m = new MyDeque<String>();
@@ -61,9 +68,9 @@ public class MyDeque<E>{
     m.addFirst("hi there");
     m.addLast("whats up");
     m.addLast("howdy");
-    System.out.println(Arrays.toString(m.data)+m.s+" "+m.e+" "+m.size);
-    m.removeFirst();
-    m.removeLast();
-    System.out.println(Arrays.toString(m.data)+m.s+" "+m.e+" "+m.size);
+    System.out.println(m+" "+m.size());
+    System.out.println(m.removeFirst());
+    System.out.println(m.removeLast());
+    System.out.println(m+" "+m.size());
   }
 }
