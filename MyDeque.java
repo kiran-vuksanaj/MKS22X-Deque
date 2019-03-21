@@ -69,8 +69,12 @@ public class MyDeque<E>{
     m.addLast("whats up");
     m.addLast("howdy");
     System.out.println(m+" "+m.size());
+    System.out.println(m.getFirst());
     System.out.println(m.removeFirst());
+    System.out.println(m.getFirst());
+    System.out.println(m.getLast());
     System.out.println(m.removeLast());
+    System.out.println(m.getLast());
     System.out.println(m+" "+m.size());
   }
 }
