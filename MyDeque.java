@@ -59,6 +59,15 @@ public class MyDeque<E>{
     }
     return out + "}";
   }
+  private void resize(){
+    E[] replace = (E[])new Object[data.length*2+1];
+    int i = s;
+    int newI = 0;
+    while(i != e){
+      replace[newI++] = data[i];
+      i = correctIndex(i+1);
+    }
+  }
   public static void main(String[] args){
     MyDeque<String> m = new MyDeque<String>();
     System.out.println(m.correctIndex(-1));
