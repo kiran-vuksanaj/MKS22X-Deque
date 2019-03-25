@@ -39,6 +39,7 @@ public class MyDeque<E>{
   public E removeFirst(){
     if(size()==0) throw new NoSuchElementException("empty deque");
     E out = data[s];
+    data[s] = null;
     s = correctIndex(s+1);
     size--;
     return out;
@@ -47,6 +48,7 @@ public class MyDeque<E>{
     if(size()==0) throw new NoSuchElementException("empty deque");
     e = correctIndex(e-1);
     E out = data[e];
+    data[e] = null;
     size--;
     return out;
   }
