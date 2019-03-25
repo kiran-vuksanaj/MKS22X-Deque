@@ -3,6 +3,9 @@ public class Calculator{
 
   }
   public static double eval(String s){
-    return -1;
+    String[] tokens = s.split("\\s+");
+    for(String s : tokens){
+      System.out.println(s);
+    }
   }
 }
