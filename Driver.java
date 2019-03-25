@@ -13,5 +13,4 @@ public class Driver{
     9. massive series of add/removes, make sure data looping is used
     10. forced resize and subsequent object removal
     */
-  }
 }
