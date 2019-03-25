@@ -15,9 +15,23 @@ public class Calculator{
         operands.addLast( operate(token,operands) );
       }
     }
-    return -1;
+    return operands.removeLast();
   }
   private static Double operate(String operator,MyDeque<Double> operands){
-    return null;
+    double operandA = operands.removeLast();
+    double operandB = operands.removeLast();
+    switch (operator){
+      case "*":
+        return operandB * operandA;
+      case "/":
+        return operandB / operandA;
+      case "+":
+        return operandB + operandA;
+      case "-":
+        return operandB - operandA;
+      case "%":
+        return operandB % operandA;
+    }
+    throw new IllegalArgumentException("bad operator");
   }
 }
