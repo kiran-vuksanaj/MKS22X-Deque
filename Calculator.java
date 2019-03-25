@@ -4,9 +4,20 @@ public class Calculator{
   }
   public static double eval(String s){
     String[] tokens = s.split("\\s+");
+    MyDeque<Double> operands = new MyDeque<Double>();
     for(String token : tokens){
-      System.out.println(token);
+      try{
+        //will stay here when numberformatexception doesn't come up, meaning its an operand
+        Double d = Double.valueOf(token);
+        operands.addLast(d);
+      }catch(NumberFormatException e){
+        //catches for when its an operator, carries out operate and adds to stack
+        operands.addLast( operate(token,operands) );
+      }
     }
     return -1;
+  }
+  private static Double operate(String operator,MyDeque<Double> operands){
+    return null;
   }
 }
