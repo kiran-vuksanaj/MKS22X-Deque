@@ -32,6 +32,6 @@ public class Calculator{
       case "%":
         return operandB % operandA;
     }
-    throw new IllegalArgumentException("bad operator");
+    throw new IllegalArgumentException("bad operator "+operator);
   }
 }
